@@ -5,10 +5,8 @@ class Todo {
   }
 
   _setEventlisteners() {
-    // set "change" listener on checkbox el
-    // when clicked, change completion status from true to flase, or vice versa
     this._todoCheckboxEl.addEventListener("change", () => {
-      console.log("clicked");
+      console.log("changed");
     });
   }
 
