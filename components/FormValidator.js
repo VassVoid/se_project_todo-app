@@ -16,17 +16,17 @@ class FormValidatior {
 
   _showInputError(inputElement) {
     const errorElementId = `#${inputElement.id}-error`;
-    const errorElement = formElement.querySelector(errorElementId);
-    inputElement.classList.add(settings.inputErrorClass);
+    const errorElement = this._formEl.querySelector(errorElementId);
+    inputElement.classList.add(this._inputErrorClass);
     errorElement.textContent = errorMessage;
-    errorElement.classList.add(settings.errorClass);
+    errorElement.classList.add(this._errorClass);
   }
 
   _hideInputError(inputElement) {
     const errorElementId = `#${inputElement.id}-error`;
-    const errorElement = formElement.querySelector(errorElementId);
-    inputElement.classList.remove(settings.inputErrorClass);
-    errorElement.classList.remove(settings.errorClass);
+    const errorElement = this._formEl.querySelector(errorElementId);
+    inputElement.classList.remove(this._inputErrorClass);
+    errorElement.classList.remove(this._errorClass);
     errorElement.textContent = "";
   }
 
@@ -42,7 +42,7 @@ class FormValidatior {
   }
 
   _hasInvalidInput(inputList) {
-    return inputList.some((inputElement) => {
+    return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
   }
@@ -83,7 +83,6 @@ class FormValidatior {
       evt.preventDefault();
     });
     this._setEventListeners();
-    this._checkInputValidity(inputElement);
   }
 }
 
