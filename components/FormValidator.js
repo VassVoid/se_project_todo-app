@@ -14,7 +14,7 @@ class FormValidatior {
 
   // TODO - implment all other methods
 
-  _showInputError(inputElement) {
+  _showInputError(inputElement, errorMessage) {
     const errorElementId = `#${inputElement.id}-error`;
     const errorElement = this._formEl.querySelector(errorElementId);
     inputElement.classList.add(this._inputErrorClass);
@@ -73,7 +73,7 @@ class FormValidatior {
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
         this._checkInputValidity(inputElement);
-        this._toggleButtonState();
+        this._toggleButtonState(this._inputList, buttonElement);
       });
     });
   }
