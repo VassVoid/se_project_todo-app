@@ -35,7 +35,7 @@ class FormValidator {
     // (a) copy body of existing function
     // (b) work through erros in console as you did in the video for enableValidation
     if (!inputElement.validity.valid) {
-      this._showInputError(inputElement);
+      this._showInputError(inputElement, inputElement.validationMessage);
     } else {
       this._hideInputError(inputElement);
     }
@@ -90,7 +90,7 @@ class FormValidator {
     this._formEl.reset();
   }
 
-  _enableValidation() {
+  enableValidation() {
     this._formEl.addEventListener("submit", (evt) => {
       evt.preventDefault();
     });
