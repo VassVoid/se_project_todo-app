@@ -52,7 +52,6 @@ addTodoForm.addEventListener("submit", (evt) => {
   const values = { name, date, id };
   renderTodo(values);
   closeModal(addTodoPopup);
-  evt.target.reset();
 });
 
 initialTodos.forEach((item) => {
