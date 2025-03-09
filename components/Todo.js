@@ -23,11 +23,12 @@ class Todo {
     this._todoLabel.setAttribute("for", `todo-${this._data.id}`);
     this._todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
     this._dueDate = new Date(this._data.date);
+    this._tododate = this._todoElement.querySelector(".todo__date");
   }
 
   _generateDueDateEl() {
     if (!isNaN(this._dueDate)) {
-      this._todoDate.textContent = `Due: ${this._dueDate.toLocaleString(
+      this._tododate.textContent = `Due: ${this._dueDate.toLocaleString(
         "en-US",
         {
           year: "numeric",
@@ -43,12 +44,7 @@ class Todo {
       .querySelector(".todo")
       .cloneNode(true);
     const todoNameEl = this._todoElement.querySelector(".todo__name");
-    this._todoDate = this._todoElement.querySelector(".todo__date");
-    const todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
-    const dueDate = new Date(this._data.date);
-
     todoNameEl.textContent = this._data.name;
-    // TODO - implment dates
 
     this._generateCheckBoxEl();
     this._generateDueDateEl();
