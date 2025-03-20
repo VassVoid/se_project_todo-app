@@ -30,8 +30,15 @@ function handleCheck(completed) {
   todoCounter.updateCompleted(completed);
 }
 
+function handleDelete(completed) {
+  todoCounter.updateTotal(false);
+  if (completed) {
+    todoCounter.updateCompleted(false);
+  }
+}
+
 const generateTodo = (data) => {
-  const todo = new Todo(data, "#todo-template", handleCheck);
+  const todo = new Todo(data, "#todo-template", handleCheck, handleDelete);
   const todoElement = todo.getView();
   return todoElement;
 };
@@ -67,7 +74,7 @@ const section = new Section({
   items: initialTodos,
   renderer: (item) => {
     const todo = generateTodo(item);
-    section.addItem(todo);
+    return todo;
   },
   containerSelector: ".todos__list",
 });
@@ -83,7 +90,12 @@ const addTodoPopup = new PopupWithForm({
     date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
 
     const id = uuidv4();
-    const values = { name, date, id };
+    const values = {
+      name: inputValues.name,
+      date: date,
+      id: Date.now(),
+      completed: false,
+    };
     renderTodo(values);
     addTodoPopup.close();
   },
