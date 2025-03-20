@@ -9,8 +9,6 @@ class FormValidator {
     this._formEl = formEl;
   }
 
-  // TODO - implment all other methods
-
   _showInputError(inputElement, errorMessage) {
     const errorElementId = `#${inputElement.id}-error`;
     const errorElement = this._formEl.querySelector(errorElementId);
@@ -55,8 +53,6 @@ class FormValidator {
     this._inputList = Array.from(
       this._formEl.querySelectorAll(this._inputSelector)
     );
-
-    // (2) TODO - finish implementing _setEventListeners
 
     this._buttonElement = this._formEl.querySelector(
       this._submitButtonSelector
