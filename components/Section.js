@@ -13,8 +13,7 @@ class Section {
   }
 
   addItem(item) {
-    const element = this._renderer(item);
-    this._container.prepend(element);
+    this._container.prepend(item);
   }
 }
 

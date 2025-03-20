@@ -67,7 +67,7 @@ addTodoButton.addEventListener("click", () => {
 //   const id = uuidv4();
 //   const values = { name, date, id };
 //   renderTodo(values);
-//   addTodoPopup.close();
+//   a ddTodoPopup.close();
 // });
 
 const section = new Section({
@@ -97,6 +97,7 @@ const addTodoPopup = new PopupWithForm({
       completed: false,
     };
     renderTodo(values);
+    todoCounter.updateTotal(true);
     addTodoPopup.close();
   },
 });
